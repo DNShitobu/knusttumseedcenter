@@ -1,806 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>KNUST - TUM SEED CENTRE</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="TUM" name="keywords">
-    <meta content="SEED" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KNUST TUM SEED Centre - Yeboakrom Living Lab for Academic Teaching & Research Exchange">
+    <meta name="keywords" content="KNUST, TUM, SEED, Mini Grid, Living Lab, Renewable Energy, Entrepreneurship">
+    <link rel="stylesheet" href="./src/output.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>KNUST TUM SEED CENTRE</title>
+    <style>
+        .hero-section { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+        .swiper-container { width: 100%; height: 100%; }
+        .swiper-slide img { width: 100%; height: 100vh; object-fit: cover; }
+        .gallery-img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
+        .team-img { width: 100%; height: 280px; object-fit: cover; }
+        .partner-logo { height: 80px; object-fit: contain; }
+        .nav-link { transition: color 0.2s; }
+        .faq-answer { display: none; }
+        .faq-answer.open { display: block; }
+    </style>
 </head>
+<body class="bg-white">
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-1 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand d-block d-lg-none">
-            <h1 class="display-4 text-white text-uppercase m-0">Tum-SEED</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav">
-			     <img class="navbar-nav" src="img/knustlogo.png" style="height: 30px;"/>
-                <img class="navbar-nav" src="img/SEED.jpg" style="height: 30px;"/>
-                <img class="list-inline-item" src="img/tum.png" style="height: 30px;"/>
-				<img class="list-inline-item" src="img/daad.png" style="height: 30px;"/>
-			
-            </div> 
-            <div class="navbar-nav ml-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-            </div>
-            <a href="#project" class="nav-item nav-link">PROJECT</a>
-            <div class="navbar-nav mr-auto py-0">
-                <a href="#team" class="nav-item nav-link">Team</a>
-                <a href="#partner" class="nav-item nav-link">Partners</a>
-                <a href="#contact" class="nav-item nav-link">News and Events</a>
-				<a href="#NEWS" class="nav-item nav-link">Contact</a>
-				
+    <!-- ===== NAVBAR ===== -->
+    <nav class="bg-white shadow-md p-3 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-2">
+                <img src="./img/knustlogo.png" alt="KNUST" style="height:36px;">
+                <img src="./img/SEED.jpg" alt="SEED" style="height:36px;">
+                <img src="./img/tum.png" alt="TUM" style="height:36px;">
+                <img src="./img/daad.png" alt="DAAD" style="height:28px;">
+            </a>
+            <!-- Desktop menu -->
+            <ul class="hidden md:flex space-x-5 text-sm font-semibold">
+                <li><a href="#home" class="nav-link text-blue-800 hover:text-yellow-600">Home</a></li>
+                <li><a href="#about" class="nav-link text-blue-800 hover:text-yellow-600">About Us</a></li>
+                <li><a href="#gallery" class="nav-link text-blue-800 hover:text-yellow-600">Gallery</a></li>
+                <li><a href="#team" class="nav-link text-blue-800 hover:text-yellow-600">Team</a></li>
+                <li><a href="#partners" class="nav-link text-blue-800 hover:text-yellow-600">Partners</a></li>
+                <li><a href="#news" class="nav-link text-blue-800 hover:text-yellow-600">News &amp; Events</a></li>
+                <li><a href="#contact" class="nav-link text-blue-800 hover:text-yellow-600">Contact Us</a></li>
+            </ul>
+            <a href="#news" class="text-white hidden md:block font-bold bg-green-700 hover:bg-yellow-600 px-4 py-2 rounded text-sm">Apply Now</a>
+            <!-- Hamburger -->
+            <div>
+                <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+                <div class="md:hidden">
+                    <div id="menu" class="absolute flex-col items-center hidden text-blue-800 self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto left-0 right-0 drop-shadow-md px-6">
+                        <a href="#home" class="block text-blue-800">Home</a>
+                        <a href="#about" class="block text-blue-800">About Us</a>
+                        <a href="#gallery" class="block text-blue-800">Gallery</a>
+                        <a href="#team" class="block text-blue-800">Team</a>
+                        <a href="#partners" class="block text-blue-800">Partners</a>
+                        <a href="#news" class="block text-blue-800">News &amp; Events</a>
+                        <a href="#contact" class="block text-blue-800">Contact Us</a>
+                        <a href="#news" class="text-white font-bold bg-green-700 hover:bg-yellow-600 px-3 py-2 rounded">Apply Now</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5 pb-5" id="home">
-        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item position-relative active" style="height: 100vh; min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="img/cover1.jpg" style="object-fit: cover;">
-					
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">YEBOAKROM LIVING LAB</h4>
-							<h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">FOR ACADEMIC(TEACHING & RESEACH) EXCHANGE</h4>
-                            <h3 class="display-2 font-secondary text-white mb-4">KNUST TUM SEED CENTRE</h3>
+    <!-- ===== HERO CAROUSEL ===== -->
+    <section id="home" class="hero-section" style="margin-top:0;">
+        <div class="swiper-container hero-swiper h-full">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./img/cover1.jpg" alt="Yeboakrom Living Lab">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-center text-white px-4" style="max-width:800px;">
+                            <h4 class="text-lg md:text-xl font-semibold mb-3 tracking-widest uppercase">Yeboakrom Living Lab</h4>
+                            <h4 class="text-base md:text-lg font-semibold mb-4 uppercase tracking-wide">For Academic Teaching &amp; Research Exchange</h4>
+                            <h1 class="text-3xl md:text-5xl font-bold mb-6">KNUST TUM SEED CENTRE</h1>
+                            <a href="#about" class="bg-green-700 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg mr-3">Learn More</a>
+                            <a href="#contact" class="bg-transparent border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white hover:text-blue-800">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/IMG_6756.jpg" alt="Project Site">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-center text-white px-4" style="max-width:800px;">
+                            <h1 class="text-3xl md:text-5xl font-bold mb-4">Mini-Grid Solar Project</h1>
+                            <p class="text-lg md:text-xl mb-6">Powering rural communities through sustainable energy innovation</p>
+                            <a href="#gallery" class="bg-green-700 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/IMG_7622.jpg" alt="Academic Exchange">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-center text-white px-4" style="max-width:800px;">
+                            <h1 class="text-3xl md:text-5xl font-bold mb-4">Academic Exchange Program</h1>
+                            <p class="text-lg md:text-xl mb-6">8 partner universities across the Global South, funded by DAAD</p>
+                            <a href="#partners" class="bg-green-700 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg">Our Partners</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/connecting.jpeg" alt="Community Impact">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="text-center text-white px-4" style="max-width:800px;">
+                            <h1 class="text-3xl md:text-5xl font-bold mb-4">Community Development</h1>
+                            <p class="text-lg md:text-xl mb-6">Empowering communities through entrepreneurship and clean energy</p>
+                            <a href="#news" class="bg-green-700 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded-lg">Apply for Grants</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev justify-content-start" href="#header-carousel" data-slide="prev">
-                <div class="btn btn-primary px-0" style="width: 0px; height: 0x;">
-                    <!-- <span class="carousel-control-prev-icon mt-3"></span> -->
-                </div>
-            </a>
-            <a class="carousel-control-next justify-content-end" href="#header-carousel" data-slide="next">
-                <div class="btn btn-primary px-0" style="width: 0px; height: 0px;">
-                    <!-- <span class="carousel-control-next-icon mt-3"></span> -->
-                </div>
-            </a>
-			<!-- bring image later --> 
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-    </div>
-    
-    <!-- About Start -->
-    <!--<div class="container-fluid py-5" id="about">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <img class="img-fluid mb-4 mb-lg-0" src="img/prof-profile.jpeg" alt="">
-                </div>
-                <!--<div class="col-lg-7">
-                    <h4 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Professor Rexford Assasie Oppong</h4>
-                    <h1 class="display-4 mb-3"><span class="text-primary">Message from</span> the Scientific Director</h1>
-					<h4>Academic exchange of teaching and research supported by our living lab at Yeboakrom is at the core of this collaboration between KNUST and TUM.</h4>
-                    <p>The world is constantly in reformation with efforts to better the life and living conditions of every human in an inclusive manner. The Sustainable Development Goal (SDG) with its 17 goals has a priority for meeting the energy needs of all people, <br>
-                        however it is estimated that, one billion people of the world's population lack access to electricity with Sub Sahara Africa amongst the worst affected areas. Over the years, efforts of meeting energy needs have been the innovation of industry players, nevertheless in the 21st century the essence of Academia is brought to bear through innovation, design thinking and transfer of technology. </p>
-                    <a class="btn btn-primary font-weight-bold py-3 px-5 mt-2" type="button" data-toggle="modal" data-target="#exampleModalLong">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
+    </section>
 
-    <!-- Gallery Start -->
-    <div class="container-fluid bg-gallery" id="project" style="padding: 120px 0; margin: 90px 0;">
-        <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Project</h6>
-            <h1 class="font-secondary display-4 text-white">Project Photo Gallery</h1>
-        </div>
-	
-        <div class="owl-carousel gallery-carousel">
-		<div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6756.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6756.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-			
-		 <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6817.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6817.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6835.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6835.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6855.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6855.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6877.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6877.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6885.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6885.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6889.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6889.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6865.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6865.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6903.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6903.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6955.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6955.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6915.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6915.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_8400.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_8400.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_6917 (1).jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_6917 (1).jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_7796.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_7796.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_7497.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_7497.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_7622.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_7622.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_7878.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_7878.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-			
-			
-			
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/emma2.1.jpeg" alt="">
-                <a class="btn btn-primary" href="img/emma2.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/project-2.jpeg" alt="">
-                <a class="btn btn-primary" href="img/project-3.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/project-1.jpeg" alt="">
-                <a class="btn btn-primary" href="img/project-1.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/connecting.jpeg" alt="">
-                <a class="btn btn-primary" href="img/connecting.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/project-7.jpeg" alt="">
-                <a class="btn btn-primary" href="img/project-7.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100"  src="img/emma1.1.jpeg" alt="">
-                <a class="btn btn-primary" href="img/emma.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-110" src="img/inside3.jpeg" alt="">
-                <a class="btn btn-primary" href="img/inside.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/project-2.jpeg" alt="">
-                <a class="btn btn-primary" href="img/project-3.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-      
-           
-			
-			<div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_7928.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_7928.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div><div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IMG_8113.jpg" alt="">
-                <a class="btn btn-primary" href="img/IMG_8113.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100"  src="img/testing.jpeg" alt="">
-                <a class="btn btn-primary" href="img/testing.jpeg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a><p></P>
+    <!-- ===== OUR MISSION (replaces Dreams Foundation "Our Mission" cards) ===== -->
+    <section class="py-16 bg-gray-50" style="padding-top:80px;">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Our Mission</h2>
+            <p class="text-center text-gray-500 mb-10">Advancing sustainable energies, entrepreneurship and development in the Global South</p>
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="w-full md:w-1/4" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="bg-green-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 h-full">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-solar-panel text-yellow-300 text-3xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-white">Renewable Energy</h3>
+                        </div>
+                        <p class="text-green-100">We design and operate mini-grid solar systems to bring electricity to off-grid rural communities across the Global South.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="bg-blue-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 h-full">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-lightbulb text-yellow-300 text-3xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-white">Entrepreneurship</h3>
+                        </div>
+                        <p class="text-blue-100">We equip students and young professionals with innovation, design thinking and entrepreneurship skills to drive community development.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="bg-yellow-600 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 h-full">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-university text-white text-3xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-white">Academic Exchange</h3>
+                        </div>
+                        <p class="text-yellow-100">Through DAAD-funded partnerships, we facilitate knowledge exchange between 8 leading technical universities in the Global South.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4" data-aos="fade-up" data-aos-duration="2500">
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 h-full">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-users text-yellow-300 text-3xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-white">Community Impact</h3>
+                        </div>
+                        <p class="text-gray-200">The Yeboakrom Living Lab is our flagship community mini-grid, now providing electricity to a rural community in Ashanti, Ghana.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-	
-    <!-- Gallery End -->
+    </section>
 
+    <!-- ===== ABOUT US ===== -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="2000">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">About Us</h2>
+            <p class="text-center text-gray-500 mb-10">KNUST-TUM Cooperation for Sustainable Energy &amp; Development</p>
+            <div class="flex flex-col-reverse md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/2">
+                    <img src="./img/prof.Oppong.jpg" alt="Prof. Rexford Assasie Oppong" class="rounded-lg shadow-lg w-full" style="max-height:420px; object-fit:cover;">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-xl font-bold text-green-700 mb-1">Message from the Scientific Director</h3>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-4">Prof. Rexford Assasie Oppong</h4>
+                    <p class="text-gray-700 mb-4">The world is constantly in reformation with efforts to better the life and living conditions of every human in an inclusive manner. The SDGs have a priority for meeting the energy needs of all people — yet one billion people still lack access to electricity, with Sub-Saharan Africa among the worst affected areas.</p>
+                    <p class="text-gray-700 mb-4">KNUST TUM SEED Project brings together young and daring students with critical and innovative mind-sets who are capable of exploring, designing and operating mini-grids based on the Living Lab concept to promote entrepreneurship and community-initiated development in rural communities.</p>
+                    <p class="text-gray-700 mb-6">The project is a collaboration with TUM, operational in 8 leading technical universities in the Global South for a 4-year duration, with funding by DAAD.</p>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#contact" class="bg-green-700 text-white px-5 py-2 rounded-lg shadow hover:bg-green-800">Get In Touch</a>
+                        <a href="#news" class="bg-blue-700 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-800">Apply Now</a>
+                    </div>
+                    <div class="flex space-x-10">
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-green-700" id="universities-count">0</h3>
+                            <p class="text-gray-600 text-sm">Partner Universities</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-green-700" id="years-count">0</h3>
+                            <p class="text-gray-600 text-sm">Years of Operation</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-4xl font-bold text-green-700" id="community-count">0</h3>
+                            <p class="text-gray-600 text-sm">Community Members Impacted</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Team Start -->
-    <div class="container-fluid py-5" id="team">
-        <div class="container py-5">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">KNUST SEED CENTRE TEAM</h6>
-                <h1 class="font-secondary display-4"></h1>
-            </div>  
-        </div>    
-            <div class="row justify-content-lg-start m-0 mb-4 pb-2 mb-sm-0 pb-sm-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Professor Rexford Assasie Oppong</h5>
-                                <p class="text-muted font-italic mb-2">Scientific Director/Project Lead</p>
-                                <p>Professor Assasie Oppong, is the Scientific Director/Project Lead of the KNUST SEED CENTRE Ghana and Lead Architect of KNUST-TUM Cooperation Centre building project.</p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://web.facebook.com/rexford.assasieoppong"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/arc-prof-r-assasie-oppong-phd-liv-506b732b/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a type="button" class="btn btn-primary  font-weight-bold px-3 mr-1" href="https://webapps.knust.edu.gh/staff/dirsearch/profile/summary/fdea9639e403.html">Read more</a>
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-white mb-2">Project Gallery</h2>
+            <p class="text-center text-gray-300 mb-10">Yeboakrom Living Lab &amp; Academic Exchange Activities</p>
+            <div class="swiper-container gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./img/IMG_6756.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_6817.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_6855.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_6885.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_6903.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_6955.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_7622.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_7796.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_7878.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_7928.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_8113.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/IMG_8400.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/connecting.jpeg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/emma2.1.jpeg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/inside3.jpeg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/new1.jpeg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/new5.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/new9.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/LIGHT2.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/LIGHT3.jpg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/testing.jpeg" alt="" class="gallery-img"></div>
+                    <div class="swiper-slide"><img src="./img/project-1.jpeg" alt="" class="gallery-img"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next" style="color:#fff;"></div>
+                <div class="swiper-button-prev" style="color:#fff;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM ===== -->
+    <section id="team" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Our Team</h2>
+            <p class="text-center text-gray-500 mb-10">KNUST SEED Centre Staff</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div data-aos="fade-up" data-aos-duration="1000" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/prof.Oppong.jpg" alt="Prof. Rexford Assasie Oppong" class="team-img">
+                    <div class="p-5 text-center">
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Prof. Rexford Assasie Oppong</h3>
+                        <p class="text-green-700 font-medium text-sm mb-3">Scientific Director / Project Lead</p>
+                        <p class="text-gray-600 text-sm mb-4">Lead Architect of the KNUST-TUM Cooperation Centre building project and Scientific Director of KNUST SEED Centre Ghana.</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://web.facebook.com/rexford.assasieoppong" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/in/arc-prof-r-assasie-oppong-phd-liv-506b732b/" class="text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://webapps.knust.edu.gh/staff/dirsearch/profile/summary/fdea9639e403.html" class="bg-green-700 text-white text-xs px-3 py-1 rounded hover:bg-green-800">Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/emmaApple.jpeg" alt="Mr. Emmanuel Boakye" class="team-img">
+                    <div class="p-5 text-center">
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Mr. Emmanuel Boakye</h3>
+                        <p class="text-green-700 font-medium text-sm mb-3">Coordination Officer</p>
+                        <p class="text-gray-600 text-sm mb-4">Responsible for coordinating academic exchange activities and day-to-day operations of the KNUST TUM SEED Centre.</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://web.facebook.com/emmanuel.boakye.9275" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.linkedin.com/in/emmanuel-boakye-798816ab/" class="text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://webapps.knust.edu.gh/staff/dirsearch/profile/summary/1c3ba5491caf.html" class="bg-green-700 text-white text-xs px-3 py-1 rounded hover:bg-green-800">Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="2000" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/stella.jpg" alt="Stella Naa Dzagble Artiabah" class="team-img">
+                    <div class="p-5 text-center">
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Stella Naa Dzagble Artiabah</h3>
+                        <p class="text-green-700 font-medium text-sm mb-3">Student Coordination Officer</p>
+                        <p class="text-gray-600 text-sm mb-4">Supports student engagement and coordination for the KNUST TUM SEED Centre programmes and activities.</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://webapps.knust.edu.gh/staff/dirsearch/profile/areas-of-interest/fc0a3f8f0610.html" class="bg-green-700 text-white text-xs px-3 py-1 rounded hover:bg-green-800">Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="2500" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/Bismark Adu.jpg" alt="Mr. Bismark Owusu Adu" class="team-img">
+                    <div class="p-5 text-center">
+                        <h3 class="text-lg font-bold text-gray-800 mb-1">Mr. Bismark Owusu Adu</h3>
+                        <p class="text-green-700 font-medium text-sm mb-3">Finance Officer</p>
+                        <p class="text-gray-600 text-sm mb-4">Manages financial operations and ensures accountability for all KNUST TUM SEED Centre funds and resources.</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="https://webapps.knust.edu.gh/staff/dirsearch/profile/positions/be0e4d14c712.html" class="bg-green-700 text-white text-xs px-3 py-1 rounded hover:bg-green-800">Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARTNERS ===== -->
+    <section id="partners" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Partners</h2>
+            <p class="text-center text-gray-500 mb-10">KNUST-TUM SEED Centre Global Network</p>
+            <!-- TUM Director -->
+            <div class="flex flex-col md:flex-row gap-8 items-center mb-12 bg-white rounded-lg shadow-lg p-8" data-aos="fade-up" data-aos-duration="1500">
+                <div class="w-full md:w-1/4 text-center">
+                    <img src="./img/prof belz.jpg" alt="Prof. Dr. Frank-Martin Belz" class="rounded-lg shadow w-full" style="max-height:280px; object-fit:cover;">
+                </div>
+                <div class="w-full md:w-3/4">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-1">Prof. Dr. Frank-Martin Belz</h3>
+                    <p class="text-green-700 font-semibold mb-4">Director, TUM SEED Centre — Technical University of Munich</p>
+                    <p class="text-gray-700 mb-4">Frank-Martin Belz (*1966) is full professor of corporate sustainability at the TUM School of Management. He is Director of the TUM SEED Center, a Center of Excellence which is international and interdisciplinary. The focus of his research and teaching is on sustainable entrepreneurship.</p>
+                    <a href="https://www.ie.mgt.tum.de/sustainability/chair/holder/" class="bg-blue-800 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-900">Read More</a>
+                </div>
+            </div>
+            <!-- Partner Universities -->
+            <h3 class="text-xl font-bold text-center text-gray-700 mb-8">Partner Universities</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
+                <a href="https://bit.bdu.edu.et/" class="text-center hover:opacity-80 transition-opacity">
+                    <img src="./img/Bahir.png" alt="Bahir Dar University" class="partner-logo mx-auto mb-2">
+                    <p class="text-xs text-gray-600 font-semibold">Bahir Dar University</p>
+                </a>
+                <a href="https://www.itb.ac.id/" class="text-center hover:opacity-80 transition-opacity">
+                    <img src="./img/Bandung.png" alt="Bandung Institute of Technology" class="partner-logo mx-auto mb-2">
+                    <p class="text-xs text-gray-600 font-semibold">Bandung Institute</p>
+                </a>
+                <a href="https://www.iitb.ac.in/" class="text-center hover:opacity-80 transition-opacity">
+                    <img src="./img/Indian.png" alt="IIT Bombay" class="partner-logo mx-auto mb-2">
+                    <p class="text-xs text-gray-600 font-semibold">IIT Bombay</p>
+                </a>
+                <a href="https://www.jkuat.ac.ke/" class="text-center hover:opacity-80 transition-opacity">
+                    <img src="./img/Jomo.png" alt="Jomo Kenyatta University" class="partner-logo mx-auto mb-2">
+                    <p class="text-xs text-gray-600 font-semibold">Jomo Kenyatta University</p>
+                </a>
+                <a href="https://www.mak.ac.ug/about-makerere" class="text-center hover:opacity-80 transition-opacity">
+                    <img src="./img/Makerere.png" alt="Makerere University" class="partner-logo mx-auto mb-2">
+                    <p class="text-xs text-gray-600 font-semibold">Makerere University</p>
+                </a>
+                <a href="https://www.pucp.edu.pe/" class="text-center hover:opacity-80 transition-opacity">
+                    <img src="./img/Pontificia.png" alt="Pontificia Universidad Católica del Perú" class="partner-logo mx-auto mb-2">
+                    <p class="text-xs text-gray-600 font-semibold">PUCP Peru</p>
+                </a>
+                <a href="https://www.nust.na/" class="text-center hover:opacity-80 transition-opacity">
+                    <img src="./img/Namibia.png" alt="Namibia University" class="partner-logo mx-auto mb-2">
+                    <p class="text-xs text-gray-600 font-semibold">NUST Namibia</p>
+                </a>
+            </div>
+            <!-- DAAD Funding -->
+            <div class="text-center mt-10">
+                <p class="text-gray-500 text-sm mb-3">TUM SEED Centre is funded by:</p>
+                <a href="https://www.daad.de/de/"><img src="./img/daad.png" alt="DAAD" style="height:60px; display:inline-block;"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWS & EVENTS (replaces "Upcoming Programs") ===== -->
+    <section id="news" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">News &amp; Events</h2>
+            <p class="text-center text-gray-500 mb-10">Latest from KNUST TUM SEED Centre</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div data-aos="fade-up" data-aos-duration="1000" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/IMG_7458.jpg" alt="Scholarship 2025" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded mb-3 inline-block">SCHOLARSHIP</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">International Summer School 2025</h3>
+                        <p class="text-gray-700 mb-4">"Empowering Tomorrow: Sustainable Energies and Entrepreneurship" — TUM SEED Center announces scholarships for master's students and young professionals from partner universities.</p>
+                        <p class="text-gray-500 text-sm mb-4"><strong>Venue:</strong> Technical University of Munich, Germany</p>
+                        <a href="mailto:katharina.ke.eichinger@tum.de" class="bg-green-700 text-white px-4 py-2 rounded-lg shadow hover:bg-green-800 text-sm">Apply via Email</a>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/IMG_7928.jpg" alt="Annual Symposium 2023" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded mb-3 inline-block">SYMPOSIUM</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Annual Symposium 2023 at KNUST</h3>
+                        <p class="text-gray-700 mb-4">The TUM SEED Annual Symposium was successfully hosted at KNUST, Kumasi, Ghana from September 4–8, 2023, bringing together all 9 partner universities for workshops, presentations and a visit to the Yeboakrom Living Lab.</p>
+                        <p class="text-gray-500 text-sm mb-4"><strong>Date:</strong> September 4–8, 2023</p>
+                        <a href="#faq" class="bg-blue-700 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-800 text-sm">View Programme</a>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="2000" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/LIGHT3.jpg" alt="Yeboakrom Mini Grid" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mb-3 inline-block">LIVING LAB</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Yeboakrom Mini-Grid Opening</h3>
+                        <p class="text-gray-700 mb-4">For the very first time, the entire Yeboakrom community is experiencing electricity. Many thanks to TUM SEED CENTRE for sponsoring academic exchange and the Living Lab mini-grid solar installation.</p>
+                        <p class="text-gray-500 text-sm mb-4"><strong>Location:</strong> Yeboakrom, Ashanti Region, Ghana</p>
+                        <a href="#gallery" class="bg-yellow-600 text-white px-4 py-2 rounded-lg shadow hover:bg-yellow-700 text-sm">View Photos</a>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1000" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/new3.jpeg" alt="Mobility Grants" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded mb-3 inline-block">GRANT</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Mobility Grants for Students</h3>
+                        <p class="text-gray-700 mb-4">KNUST Master's and PhD students researching entrepreneurship and renewable energies can apply for mobility grants including PhD seminars at TUM and research residencies.</p>
+                        <a href="#contact" class="bg-purple-700 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-800 text-sm">Contact for Form</a>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="1500" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/new1.jpeg" alt="Team Visit" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded mb-3 inline-block">FIELD VISIT</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Team Visit to Yeboakrom Living Lab</h3>
+                        <p class="text-gray-700 mb-4">The Scientific Director and team visited the Yeboakrom Mini-Grid to interact with community members ahead of the maiden Annual Symposium in India, assessing the Living Lab progress.</p>
+                        <p class="text-gray-500 text-sm mb-4"><strong>Date:</strong> 19th October, 2022</p>
+                        <a href="#gallery" class="bg-red-700 text-white px-4 py-2 rounded-lg shadow hover:bg-red-800 text-sm">View Photos</a>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="2000" class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <img src="./img/emmaPro.jpg" alt="TUM Africa Talent" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded mb-3 inline-block">PROGRAMME</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">TUM.Africa Talent Program</h3>
+                        <p class="text-gray-700 mb-4">A new research exchange program bringing together doctoral candidates from Sub-Saharan Africa with TUM professors and researchers, promoting scientific excellence and societal impact.</p>
+                        <a href="https://www.seed.tum.de/index.php?id=42" class="bg-green-700 text-white px-4 py-2 rounded-lg shadow hover:bg-green-800 text-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="2000">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Frequently Asked Questions</h2>
+            <p class="text-center text-gray-500 mb-10">About KNUST TUM SEED Centre</p>
+            <div class="space-y-4 max-w-3xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <button class="w-full text-left text-gray-800 font-bold focus:outline-none" onclick="toggleAccordion('faq1')">What is the KNUST TUM SEED Centre?</button>
+                    <div id="faq1" class="faq-answer mt-2 text-gray-700">
+                        <p>The KNUST TUM SEED Centre is a collaboration between Kwame Nkrumah University of Science and Technology (KNUST) and Technical University of Munich (TUM), focused on Sustainable Energies, Entrepreneurship and Development. It operates the Yeboakrom Living Lab mini-grid solar project in the Ashanti Region of Ghana.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <button class="w-full text-left text-gray-800 font-bold focus:outline-none" onclick="toggleAccordion('faq2')">How can I apply for a scholarship or mobility grant?</button>
+                    <div id="faq2" class="faq-answer mt-2 text-gray-700">
+                        <p>Master's and PhD students from KNUST and other partner universities who are researching entrepreneurship and renewable energies can contact the KNUST TUM SEED Centre. Visit the Contact Us section or email tumseedknust@gmail.com for application forms.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <button class="w-full text-left text-gray-800 font-bold focus:outline-none" onclick="toggleAccordion('faq3')">What is the Yeboakrom Living Lab?</button>
+                    <div id="faq3" class="faq-answer mt-2 text-gray-700">
+                        <p>The Yeboakrom Living Lab is a mini-grid solar energy installation in a rural community in the Ashanti Region of Ghana. It is the first of its kind for the community, providing electricity to households and the school. It serves as a hands-on research and learning platform for students and faculty.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <button class="w-full text-left text-gray-800 font-bold focus:outline-none" onclick="toggleAccordion('faq4')">Who funds the TUM SEED Centre?</button>
+                    <div id="faq4" class="faq-answer mt-2 text-gray-700">
+                        <p>The TUM SEED Centre is funded by DAAD (German Academic Exchange Service) under the long-term program "Exceed – Excellence Centers for Exchange and Development", funded by the Federal Ministry for Economic Cooperation and Development (BMZ) for 2020–2024.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <button class="w-full text-left text-gray-800 font-bold focus:outline-none" onclick="toggleAccordion('faq5')">Which universities are partner institutions?</button>
+                    <div id="faq5" class="faq-answer mt-2 text-gray-700">
+                        <p>The TUM SEED Centre has 8 partner universities in the Global South: KNUST (Ghana), Bahir Dar University (Ethiopia), Bandung Institute of Technology (Indonesia), IIT Bombay (India), Jomo Kenyatta University (Kenya), Makerere University (Uganda), Pontificia Universidad Católica del Perú, and NUST Namibia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT US ===== -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-duration="2000">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Contact Us</h2>
+            <p class="text-center text-gray-500 mb-10">Get in touch with KNUST TUM SEED Centre</p>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="w-full md:w-1/2">
+                    <form action="mailto:tumseedknust@gmail.com" method="POST" enctype="text/plain" class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 font-bold mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="e.g. Scholarship Application" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message..." class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded-lg shadow hover:bg-green-800 font-bold">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-up" data-aos-duration="2500">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg h-full">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-phone text-green-700 text-lg mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-gray-700">Phone</p>
+                                    <p class="text-gray-600">+233 208 126 621 / +233 244 570 944</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-envelope text-green-700 text-lg mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-gray-700">Email</p>
+                                    <a href="mailto:tumseedknust@gmail.com" class="text-green-700 hover:underline">tumseedknust@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-map-marker-alt text-green-700 text-lg mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-gray-700">Address</p>
+                                    <p class="text-gray-600">TUM SEED CENTER, Department of Architecture<br>KNUST, Kumasi, Ghana</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-share-alt text-green-700 text-lg mt-1"></i>
+                                <div>
+                                    <p class="font-bold text-gray-700 mb-2">Follow Us</p>
+                                    <div class="flex space-x-3">
+                                        <a href="https://www.facebook.com/profile.php?id=100087939955315&sk=photos" class="bg-blue-600 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-blue-700"><i class="fab fa-facebook-f text-sm"></i></a>
+                                        <a href="https://www.linkedin.com/in/knust-tum-seed-centre-035961258/" class="bg-blue-700 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-blue-800"><i class="fab fa-linkedin-in text-sm"></i></a>
+                                        <a href="https://www.instagram.com/gardern_eggs?r=nametag" class="bg-pink-600 text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-pink-700"><i class="fab fa-instagram text-sm"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-
-                            <img class="position-absolute w-100 h-100" src="img/prof.Oppong.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                    
-                </div>
-                            
-            </div>
-            <br>
-            <div class="row justify-content-lg-end m-0 mb-4 pb-2 mb-sm-0 pb-sm-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <img class="position-absolute w-100 h-100" src="img/emmaApple.jpeg" style="object-fit: cover;">
-							<div class="col-lg-15">
-                            
-                          </div>
-                        </div>
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Mr. Emmanuel Boakye</h5>
-                                <p class="text-muted font-italic mb-2">Coordination Officer</p>
-                                <p> </p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://web.facebook.com/emmanuel.boakye.9275"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/emmanuel-boakye-798816ab/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a type="button" class="btn btn-primary  font-weight-bold px-3 mr-1" href="https://webapps.knust.edu.gh/staff/dirsearch/profile/summary/1c3ba5491caf.html">Read more</a>
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-lg-start m-0 mb-4 pb-2 mb-sm-0 pb-sm-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Stella Naa Dzagble Artiabah</h5>
-                                <p class="text-muted font-italic mb-2">Student Coordination officer</p>
-                                <p></p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a type="button" class="btn btn-primary  font-weight-bold px-3 mr-1" href="https://webapps.knust.edu.gh/staff/dirsearch/profile/areas-of-interest/fc0a3f8f0610.html">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <img class="position-absolute w-100 h-100" src="img/stella.jpg" alt="">
-                        </div>
-						
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-green-800 py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+                <div class="text-white">
+                    <h3 class="text-xl font-bold mb-2">KNUST TUM SEED CENTRE</h3>
+                    <p class="text-green-200 text-sm mb-3">Sustainable Energies, Entrepreneurship &amp; Development</p>
+                    <div class="flex space-x-2 mt-2">
+                        <img src="./img/knustlogo.png" alt="KNUST" style="height:32px; filter:brightness(0) invert(1);">
+                        <img src="./img/daad.png" alt="DAAD" style="height:32px; filter:brightness(0) invert(1);">
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-lg-end m-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <img class="position-absolute w-100 h-100" src="img/Bismark Adu.jpg" style="object-fit: cover;">
-                        </div>
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Mr. Bismark Owusu Adu</h5>
-                                <p class="text-muted font-italic mb-2">Finance officer</p>
-                                <p></p>
-                                <div class="position-relative mb-2">
-                                    <a type="button" class="btn btn-primary  font-weight-bold px-3 mr-1" href="https://webapps.knust.edu.gh/staff/dirsearch/profile/positions/be0e4d14c712.html">Read more</a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-white">
+                    <h4 class="font-bold mb-3">Quick Links</h4>
+                    <ul class="space-y-1 text-green-200 text-sm">
+                        <li><a href="#home" class="hover:text-white">Home</a></li>
+                        <li><a href="#about" class="hover:text-white">About Us</a></li>
+                        <li><a href="#gallery" class="hover:text-white">Gallery</a></li>
+                        <li><a href="#team" class="hover:text-white">Team</a></li>
+                        <li><a href="#partners" class="hover:text-white">Partners</a></li>
+                        <li><a href="#news" class="hover:text-white">News &amp; Events</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="text-white">
+                    <h4 class="font-bold mb-3">Contact</h4>
+                    <p class="text-green-200 text-sm">tumseedknust@gmail.com</p>
+                    <p class="text-green-200 text-sm">+233 208 126 621</p>
+                    <p class="text-green-200 text-sm">Department of Architecture, KNUST, Kumasi</p>
                 </div>
             </div>
-			<br> 
-			<!--div class="row justify-content-lg-start m-0 mb-4 pb-2 mb-sm-0 pb-sm-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Ms. Afefa Mireille Akoumany</h5>
-                                <p class="text-muted font-italic mb-2">Seed Student Initiative Founder</p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/afefa-akoumany "><i class="fab fa-linkedin-in"></i></a>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <div class="col-lg-15">
-                            <img style="height:300px ;" class="img-fluid mb-4 mb-lg-0" src="img/Afefa.jpg" alt="">
-                          </div>
-                        </div>
-						
-                    </div>
-                </div>
-            </div>
-			
-			
-			
-        </div>
-    </div>
-    <!-- Team End -->
-    <div class="section-title">
-
-    </div>
-
-    <div class="container-fluid py-5" id="partner">
-        <div class="container py-5">
-            <div class="section-titles position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">KNUST-TUM SEED PARTNERS</h6>
-                <div class="section-title position-relative text-center"></div> 
-                <h4 class="font-secondary display-4">Prof. Dr. Frank-Martin Belz</h4>
-				<a>(Director, TUM SEED CENTRE)</a> 
-            </div>  
-       
-                <div class="container-fluid py5">
-                    <div class="row align-items-center">
-                        <div class="col-lg-5">
-                            <img style="height:300px ;" class="img-fluid mb-4 mb-lg-0" src="img/prof belz.jpg" alt="">
-                        </div>
-                        <div class="col-lg-7">
-                            
-                            
-                            <p>Frank-Martin Belz (*1966) is full professor of corporate sustainability at the TUM School of Management. Furthermore, he is Director of the TUM SEED Center, a Center of Excellence, which is international und interdisciplinary. The focus of his research and teaching is on sustainable entrepreneurship.</p>
-                            <a class="btn btn-primary font-weight-bold py-3 px-5 mt-3" type="button"  href="https://www.ie.mgt.tum.de/sustainability/chair/holder/">Read More</a>
-
-                        </div>
-                    </div>
-        </div>
-		
-     </div>   
-	 <!-- Partner universities -->
-	 <div class="list-inline  position-relative text-center ">
-	 
-		
-                            <img style="height:100px; margin-rigth:50px" class="img-fluid mb-4 mb-lg-0" src="img/Bahir.png" alt="">
-     
-		<a href="https://bit.bdu.edu.et/" class=""><strong>bahir da university</strong></a>
-		</div>
-<div class="list-inline  position-relative text-center ">   
-                         <img style="height:100px ;margin-rigth:50px" class="img-fluid mb-4 mb-lg-0" src="img/Bandung.png" alt="">
-       
-		<a href="https://www.itb.ac.id/" class=""><strong>bandung institute</strong></a>
-		
-                            <img style="height:100px ;margin-rigth:50px" class="img-fluid mb-4 mb-lg-0" src="img/Indian.png" alt="">
-							<a href="https://www.iitb.ac.in/" class=""><strong>india university</strong></a>
-        </div>
-		
-		
-		<div class="list-inline  position-relative text-center ">
-                            <img style="height:100px ;margin-rigth:50px;" class="img-fluid mb-4 mb-lg-0" src="img/Jomo.png" alt="">				
-        
-		                    <a href="https://www.jkuat.ac.ke/" class=""><strong>Jomo Kenyatta University</strong></a>
-		
-                            <img style="height:100px ;margin-rigth:50px" class="img-fluid mb-4 mb-lg-0" src="img/Makerere.png" alt="">
-        
-		                    <a href="https://www.mak.ac.ug/about-makerere" class=""><strong>makerere university </strong></a>
-							</div>
-		<div class="list-inline  position-relative text-center ">
-                            <img style="height:100px ;margin-rigth:50px" class="img-fluid mb-4 mb-lg-0" src="img/Pontificia.png" alt="">					
-        
-		                    <a href="https://www.pucp.edu.pe/" class=""><strong>Pontificia Universidad Católica del Perú</strong></a>
-		
-                            <img style="height:100px ;margin-rigth:50px" class="img-fluid mb-4 mb-lg-0" src="img/Namibia.png" alt="">
-							<a href="https://www.nust.na/" class=""><strong>namibia  university</strong></a>
-        	
-		
-		</div>
-		</div>
-    <!-- footer begin -->
-    <div class="container-fluid py-5" id="contact">
-       
-    </div>      
-	<!-- News and Events start -->
-	<div class="section-titles position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">NEWS AND EVENTS</h6>
-               
-            </div>
-            <div class="container py-1">
-                <div class="section-title position-relative text-center"></div>
-            </div>
-            <div class="container py-1">
-            <div class="col-lg-10" >
-			<br>
-			<p><h2> TUM SEED Center</h2> 
-  <h2>Scholarship Announcement</h2> 
-<h2>International Summer School 2025 “Empowering Tomorrow:</h2>   
-<h2>Sustainable Energies and Entrepreneurship”</h2> 
-</p> 
-<p> The TUM SEED Center for Sustainable Energies, Entrepreneurship, and Development at the Technical 
-University of Munich (TUM) is part of the long-term DAAD program “Exceed – Excellence Centers for 
-Exchange and Development”, funded by the Federal Ministry for Economic Cooperation and Development 2020-2024. The TUM SEED Center aims to contribute to sustainable development by offering higher education and conducting research at the intersection of sustainable energies and entrepreneurship in the Global South (https://www.seed.tum.de). Hereby, the TUM SEED Center announces up to five scholarships for the International Summer School 2024 “Empowering Tomorrow: Sustainable Energies and Entrepreneurship”, which will take place in Munich from 8 to 19 July 2024. (https://www.mgt.tum.de/programs/international-summer-school). The scholarship covers the program's total costs, including the participant fee, housing, and mobility costs. 
-Eligibility criteria: The candidate must be a master’s student or a young professional (having already achieved a bachelor’s degree) from one of the partner universities of the TUM SEED Center with a strong interest in sustainable energies and entrepreneurship. 
-The candidate will receive: 
-1.	2 weeks of on-site classes (from 8  to 19 July 2024); 
-2.	Full reading package; 
-3.	Lectures by excellent academics; 
-4.	Discussions with sustainable founders; 
-5.	Interactive activities and group work; 
-6.	Project management skills; 
-7.	6 ECTS (Equivalent to 3 Credits in the Anglo-Saxon context); 
-8.	Certificate from the TUM School of Management. 
-<br>
-In line with DAAD, the TUM SEED Center seeks to enhance gender equality. It highly encourages female candidates to apply for the announced scholarship. Please send your application, including your motivation letter, CV, and Transcript of Records in one PDF file, to Ms. Katharina Eichinger (email: 
-katharina.ke.eichinger@tum.de) by 15 March 2024 (23:59).   
- 
- TUM SEED Center is funded by:   <h4>DAAD</h4>
- 	
-
- </P>
-                <!--p><h2>MESSAGE FROM THE SCIENTIFIC DIRECTOR/PRINCIPAL OF KNUST-TUM SEED CENTRE </h2></p>
-<br>
-                    <p> The year 2023 saw a lot of successes and challenges for the project. We were able to host a successful international symposium at KNUST involving all the nine (9) partner universities. A Student from KNUST benefited from a scholarship from the project for Student Initiative Foundation and a Master of Philosophy thesis on the mini-grid is at the final stages of completion. Some Staff of KNUST had the opportunity to travel to India and Germany for seminars and workshops to present papers and gained knowledge on mini-grids etc. 
-                    On the low side, the mini-grid solar installations at Yeboakrom suffered technical setbacks that led to power outages from the mini-grid. Notwithstanding, the KNUST-TUM SEED CENTRE team has been working tirelessly with the community leadership to get power restored. 
-                    On behalf of my team we express our profound gratitude to TUM SEED, Germany for the support and looking forward to a productive collaboration this Year 2024.
-                    </p>
-                  
-				  
-    <br>
-	<p><h2> DISCLAIMER OF JOURNAL ARTICLE BY SUSTAINABILITY- AN OPEN ACCESS JOURNAL FROM MDPI - Integration of Advanced Metering Infrastructure for Mini-Grid Solar PV Systems in Off-Grid Rural Communities (SoAMIRural) in the Sustainability 2023, 15, 7526. https;//doi.org /10.3390/su15097526</h2></p> 
-	<br>
-	KNUST-TUM SEED CENTRE wishes to bring to the attention of the reading and scientific community that an article titled Integration of Advanced Metering Infrastructure for Mini-Grid Solar PV Systems in Off-Grid Rural Communities (SoAMIRural) in the Sustainability 2023, 15, 7526. https;//doi.org /10.3390/su15097526 which was “Received: 25 March 2023 / Revised: 19 April 2023 / Accepted: 27 April 2023 / Published: 4 May 2023” has serious problems of authorship, contribution, conflict of interest and unethical use of data amongst others. 
-
-    The article is a hoax. The data used in the article are falsified and fabricated. 
-
-    The data and materials used for the publication of the article were stolen from the KNUST SEED CENTRE Mini-grid solar project at Yeboakrom in the Ashanti Region of Ghana.  
-
-    The publication has been reported appropriately to the following, sustainability@mdpi.com jr-sustainability@mdpi.com publication.ethics@mdpi.com since November, 2023. 
-
- <br>
- 
- <h6>For further information contact:</h6> 
- PROFESSOR REXFORD ASSASIE OPPONG
- (SCIENTIFIC DIRECTOR/PRINCIPAL INVESTIGATOR)
- KNUST-TUM SEED CENTRE, 
- DEPARTMENT OF ARCHITECTURE 
- KNUST, KUMASI </P>
-    
-			<!-- <div class="section-titles position-relative text-center"> -->
-			<h2>TUM SEED Center Annual Symposium 2023 at KNUST, Kumasi Ghana
-Annual Symposium 2023 at KNUST, Kumasi Ghana
-September 4-8, 2023 TIME PLAN</h2><br>
-                                                                 
- 
-<h6>September 03, 2023 – Day 0: </h6>
-<p>Arrival Day
-              Airoport Pickup service 
-              Check-in @ KNUST Guest House or Hotels close to campus
-</p><br>
-			  <h6>
-September 04, 2023 – Day 1:</h6>
-<p> Welcome and Introduction<br>
-14:00     Welcome Note by host Scientific Director, KNUST-TUM SEED Ghana
-              (Guest of Honour Address by KNUST Vice-Chancellor Prof. Mrs. Rita Akosua Dickson)
-14:10     Welcome Note by Director SEED or Senior Vice President Juliane Winkelmann
-14:25     Round of introductions (all participants)
-14:45     Past, Present and Future of SEED: Some Reflections and the Way to Move Forward by Prof. Dr. Frank-Martin Belz, TUM SEED Center director
-15:30     Coffee break
-16:00     Introduction – Main Departments, Institutions and/Centers @ KNUST relating SEED* (e.g. Center of Renewable Energy, Energy Commission, Ghana, Student Business Organization for Sustainable Development (SBOSD)-Ghana) by host scientific directorKNUST-TUM SEED Ghana 
-17:00     Discussion and Networking
-18:00     Informal networking among delegates or with KNUST faculty
-19:00     Dinner (Venue to be decided)</p><br>
-<h6>
-September 05, 2023 – Day 2:</h6>
-    <p> Presentations and poster sessions
-09:00     SEED Center Partner Universities: short presentations by each team on academic exchange and project relating SEED (max. 10 minutes)
-10:30    Coffee break (Posters on)
-11:00     Academic Exchange by wandering around (Poster Session/Gallery)
-12:00     Lunch 
-13:30 2-3 Workshops with a specific focus, which last 90 minutes and run in parallel, 2 facilitators per workshop, coming from different SEED partners to engage in academic discussions prior to and during the annual symposium
-15:00    Coffee Break
-15:30    2-3 Workshops
-17:00    Key note speech: The Future of Mini Grids in Africa (e.g., Association of Africa Mini Grid Developers – AMDA or CEO of PowerHusk)
-18:00    Free time (Informal networking and interactions)
-19:00    Gala Dinner (Venue to be decided)</p><br>
- <h6>
-September 06, 2023 – Day 3: </h6>
-<p>Presentations and Workshops with external stakeholders
- 
-9:00       Key Note “Mini Grids as an emerging sector: Towards a business model, growth and sustainability”
-10:00     Coffee break
-10:30     Workshops  
-12:00     Lunch break
-14:00     Key Note: “Policies for Mini Grids as an emerging sector”
-15:00     Discussions
-15:30     Coffee break
-16:00     Workshops
-17:30     Free time (Informal networking or visiting any KNUST labs or KNUST faculty of interest)
-</p><br>
- <h6>
-September 07, 2023 – Day 4: </h6>
-<p>Visit to Living Lab at Yeboakrom 
-08:00     Expected time of departure from KNUST campus (4 x 20-seater buses)
-11:00     Arrival at Living Lab and going around
-13:00     Lunch
-14:00     Discussions – Living Labs
-15:00     Departure from Living Labs
-18:00     Expected time of arrival at KNUST campus
-</p><br>
- <h6>
-September 08, 2023 – Day 5:</h6>
-<p> Informal Networking and Local sightseeing (optional)
- 
-September 08, 2023 – Day 5: For Steering Committee, Project Coordinators and Advisory committee ONLY
-10:00     Annual Symposium 2023 and 2024: Looking back and moving forward
-              Steering Committee and Project Coordinators (together)
-11:00     Coffee Break
-11:30     Steering Committee Meeting and Project Coordinator Meeting (in parallel)
-13:00     Farewell Lunch
-</p><br>
- <h6>
-September 09, 2023 – Day 6: Departures
-</h6>
-</div>
-</div>
-
-
-
-			
-<div class="container py-10" id="about">			
-	 <h5> KNUST SEED TEAM VISIT YEBOAKROM LIVING LAB AHEAD OF ANNUAL SYMPOSIUM IN INDIA </h5>
-
-	 <p> Today, Wednesday, 19th October, 2022.
-The Scientific Director Professor Rexford Assasie Oppong led the team scheduled to attend the maiden annual symposium of TUM SEED and partner universities in the global south.
-The team made up of Mr. Emmanuel Boakye-Coordination Officer, Dr. Joseph Owusu of KNUST Business School, Dr. Elvis Twumasi of Department Electrical Engineering and Mr. Owusu Yeboakrom Community representative visited & accessed the Mini Grid/Living Lab which has been in the testing phase since December, 2021. 
-The team also visited the school in the community and interacted with teachers and pupils who are excited to have electricity since it is impacting positively on their well-being.
-The team also did selective household visits to conscientize them of the need to prepare to own the Mini-Grid to enhance its sustainability (See pictures of the visit below). <br>
-<div class="section-titles position-relative text-center">    
-	<img class="list-inline-item" src="img/new1.jpeg" style="height: 200px;"/>
-	 <img class="list-inline-item" src="img/new2.jpeg" style="height: 200px;"/>
-	 <img class="list-inline-item" src="img/new3.jpeg" style="height: 200px;"/>
-	 <img class="list-inline-item" src="img/new4.jpeg" style="height: 200px;"/>
-	  <img class="list-inline-item" src="img/new5.jpg" style="height: 200px;"/>	
-	  <img class="list-inline-item" src="img/new6.jpg" style="height: 200px;"/>
-	 <img class="list-inline-item" src="img/new7.jpg" style="height: 200px;"/>
-	<img class="list-inline-item" src="img/new8.jpg" style="height: 200px;"/>
-	<img class="list-inline-item" src="img/new9.jpg" style="height: 200px;"/>
-	<img class="list-inline-item" src="img/new10.jpg" style="height: 200px;"/>
-	<img class="list-inline-item" src="img/new11.jpg" style="height: 200px;"/>
-	<img class="list-inline-item" src="img/new12.jpg" style="height: 200px;"/>
-	</div>
- 
-</p><br>
-	 
-	 <br>
-	 <!-- The opening of the living lab -->
-	 <h5> THE OPENING OF THE YEBOAKROM MINI GRID/LIVING LAB!</h5>
-	 <p>The date and time for this important event will be communicated here in due time, stay with us for more update.</P>
-	 <p>This is the very first time the entire community are experiencing electricity, many thanks to TUM SEED CENTRE for  sponsoring academic exchange and the Living Lab.</p>
-	 <img class="list-inline-item" src="img/LIGHT3.jpg" style="height: 200px;"/>
-	 <img class="list-inline-item" src="img/LIGHT2.jpg" style="height: 200px;"/>
-	 <img class="list-inline-item" src="img/LIGHT4.jpg" style="height: 200px;"/>
-	 <img class="list-inline-item" src="img/LIGHT5.jpg" style="height: 200px;"/>
-	 <br><br>
-	 
-	 <h5>MOBILITY GRANTS FOR KNUST MASTER/PhD STUDENTS, WHO ARE RESEARCHING INTO ENTREPRENUARSHIP AND RENEWABLE ENERGIES CAN CONTACT KNUST TUM SEED CENTRE FOR MORE INFORMATION. </h5>
-	 <p> You can apply for the mobility grants sending your application to me by October 28, 2022. Here below you find further information about the grants:<p/>
-<P>
-1)     PhD Seminar at TUM (For Doctoral Students)
-
-8 short-term residencies for PhD candidates from the 8 partner universities, each 1 month to participate in PhD-seminars at TUM, 1000 EUR travel costs in average per person (+ max of 1345 EUR accommodation)
-
-Use the application form attached “SEED Application Form Mobility Grants_Seminar at TUM” to apply
-
-2)    Research and Teaching at TUM (For Professors and Postdocs)
-
-4 short-term residencies for professors from the 8 partner universities, each 1 month for research and teaching at TUM Center, 1000 EUR travel costs in average per person  (+ max of 2445 EUR accommodation)
-
-<h6> Kindly go to our contact page and connect up with us for the form, to enable you to place in your application!</h6><br>
-<h4>TUM.Africa Talent program launched</h4>
-<p>  TUM.Africa Talent is a brand new research exchange program that brings together talented and highly educated doctoral candidates from Sub-Saharan Africa (SSA) with professors and doctoral candidates at TUM who share common goals: scientific excellence, the promotion of knowledge and mutual understanding, and the desire to have a positive societal impact.</P></p>
-  <p> Against this background, Dr. Susanne Koch, principal investigator at the TUM Department of Science, Technology and Society together with Prof. Nelius Boshoff from the Stellenbosch Centre for Research on Evaluation, Science and Technology held an exploratory workshop in May 2022 on the topic of “Science as a Site of Inequality.” This hybrid, multilingual event brought together scholars from 21 countries across Africa, Asia, Europe, and North and Latin America to discuss evidence and the experience of inequality in the field of environment-related research. The keynote sessions are available as a podcast, published by the Global Research Programme on Inequality. The successful event was funded by the DFG Programme Point Sud.</P>
-  <p>Interest persons should contact Professor Rexford Assasie Oppong (Scientific Director/Project lead)
-	 <a class="btn btn-primary font-weight-bold py-3 px-5 mt-2" type="button"  href="https://www.seed.tum.de/index.php?id=42">Read More</a><br>
-	</div>
-  <div class="list-inline  position-relative text-center ">
-  <img  src="img/daad.png" style="height: 300px;"/>
-  </div>
-	<!-- News and Events end here -->
-	
-	<div class="container-fluid py-5" id="NEWS">
-        <div class="container py-1">
-            <div class="section-title position-relative text-center"></div>
-        </div>
-    </div>    
-	<!-- News start from here -->
-	
-    <!-- Contact Start -->
-    <div class="container-fluid py-5" id="contact">
-        <div class="container py-1">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Contact</h6>
-                <h1 class="font-secondary display-4">Get In Touch</h1>
-                <div class="footer-basic">
-                    <footer>
-                        <div class="social">
-                           <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
-                            <a href="https://www.facebook.com/profile.php?id=100087939955315&sk=photos"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.linkedin.com/in/knust-tum-seed-centre-035961258/"><i class="fab fa-linkin-I"></i></a>
-                            <!--<a href="tumseedknust@gmail.com"><i class="fas fa-envelope"></i></a>-->
-                        </div>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#home">Home</a></li>
-                            <li class="list-inline-item"><a href="#about">About</a></li>
-                            <li class="list-inline-item"><a href="#project">Project</a></li>
-                            <li class="list-inline-item"><a href="#team">Team</a></li>
-                            <li class="list-inline-item"><a href="#contact">Contact</a></li>
-                        </ul>
-                                <a class="fas fa-phone" aria-hidden="true" href='https://www.instagram.com/gardern_eggs?r=nametag'></a>
-                            <!-- End contact Icon -->
-                            <div class="contact-info">
-							 <p>Give us a call</p>
-                                <h5>+233 208 126 621 / +233 244 570 944</h5>
-								<h5>Mail address:tumseedknust@gmail.com</h5>
-                                <div class="list-inline  position-relative text-center ">
-		 <p class="copyright">TUM SEED CENTER, KNUST © 2022</p>
-         <p class="copyright">Developed By E&S <a></a></p>
-</div>
-                            </div>
-                            <!-- End Contact Info -->
-							
-                    </footer>	
-                </div>    
-            </div>
-<div class="list-inline  position-relative text-center ">
-		  <a href="https://www.knust.edu.gh/"><img class="list-inline-item" src="img/knustlogo.png"  style="height: 40px;"/></a>
-		<a href="https://www.daad.de/de/"> <img class="list-inline-item" src="img/daad.png" style="height: 40px;"/> </a>
-		 <a href="https://www.seed.tum.de/index.php?id=3"><img class="list-inline-item" src="img/SEED.jpg" style="height: 40px"/></a>
-		 <a href="https://www.tum.de/"><img class="list-inline-item" src="img/tum.png" style="height: 40px;"/></a>	
-        </div>			
-        </div>
-		
-    </div>
-    
-											
-                      
-    <!-- Contact End -->
-        
- 
-
-    <!-- Modal For Read me -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Professor Rexford Assasie Oppong</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img class="img-fluid mb-4" src="img/prof-profile.jpeg" alt="">
-                    <p>The world is constantly in reformation with efforts to better the life and living conditions of every human in an inclusive manner. The Sustainable Development Goal (SDG) with its 17 goals has a priority for meeting the energy needs of all people,
-                        however it is estimated that, one billion people of the world's population lack access to electricity with Sub Sahara Africa amongst the worst affected areas. Over the years, efforts of meeting energy needs have been the innovation of industry players, nevertheless in the 21st century the essence of Academia is brought to bear through innovation, design thinking and transfer of technology.<br>KNUST TUM SEED Project is one of such innovations.<br> The project brings together young and daring students with critical and innovative mind-sets who capable of exploring, thinking, designing and operating mini grids based on the Living lab concept to promote entrepreneurship and community initiated development in rural communities. <br>
-                        The project is a collaboration with TUM and is operational in 8 leading technical universities in the Global South for a 4-year duration with funding by DAAD. The KNUST TUM Centre's expectation is that, the involvement of students in this problem-solution workshop will equip them with the requisite skill for more future engagements whiles Yeboakrom, the first to benefit from this project become a model community with a Mini Solar Grid as a source of energy and a catalyst for community development.<br>
-                         I wish all participating students, the KNUST TUM SEED TEAM. Juaben Municipal Assembly and Yeboakrom community members an experiential and exciting working section.</p>
+            <div class="border-t border-green-700 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-green-200 text-sm">© 2024 TUM SEED CENTER, KNUST. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-green-200 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-green-200 hover:text-white text-sm">Terms of Service</a>
+                    <a href="#contact" class="text-green-200 hover:text-white text-sm">Contact Us</a>
                 </div>
             </div>
         </div>
-    </div>
-    
-    
+    </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./assets/main.js"></script>
+    <script>
+        AOS.init();
 
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+        // Hero swiper
+        new Swiper('.hero-swiper', {
+            loop: true,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            autoplay: { delay: 5000, disableOnInteraction: false },
+        });
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        // Gallery swiper
+        new Swiper('.gallery-swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 16,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            breakpoints: {
+                640:  { slidesPerView: 2, spaceBetween: 16 },
+                1024: { slidesPerView: 3, spaceBetween: 16 },
+            }
+        });
 
+        // FAQ accordion
+        function toggleAccordion(id) {
+            var el = document.getElementById(id);
+            el.classList.toggle('open');
+        }
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+        // Animated counters
+        function animateCounter(id, end, duration) {
+            var obj = document.getElementById(id);
+            var start = 0;
+            var step = end / (duration / 50);
+            var timer = setInterval(function() {
+                start += step;
+                if (start >= end) { start = end; clearInterval(timer); }
+                obj.textContent = Math.floor(start);
+            }, 50);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            animateCounter('universities-count', 8, 2000);
+            animateCounter('years-count', 4, 2000);
+            animateCounter('community-count', 500, 3000);
+        });
+    </script>
 </body>
-
 </html>
