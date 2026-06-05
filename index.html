@@ -24,52 +24,66 @@
 </head>
 <body class="bg-white">
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="bg-white shadow-md p-3 fixed w-full top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#home" class="flex items-center space-x-2">
-                <img src="./img/knustlogo.png" alt="KNUST" style="height:36px;">
-                <img src="./img/SEED.jpg" alt="SEED" style="height:36px;">
-                <img src="./img/tum.png" alt="TUM" style="height:36px;">
-                <img src="./img/daad.png" alt="DAAD" style="height:28px;">
-            </a>
-            <!-- Desktop menu -->
-            <ul class="hidden md:flex space-x-5 text-sm font-semibold">
-                <li><a href="#home" class="nav-link text-blue-800 hover:text-yellow-600">Home</a></li>
-                <li><a href="#about" class="nav-link text-blue-800 hover:text-yellow-600">About Us</a></li>
-                <li><a href="#gallery" class="nav-link text-blue-800 hover:text-yellow-600">Gallery</a></li>
-                <li><a href="#team" class="nav-link text-blue-800 hover:text-yellow-600">Team</a></li>
-                <li><a href="#partners" class="nav-link text-blue-800 hover:text-yellow-600">Partners</a></li>
-                <li><a href="#news" class="nav-link text-blue-800 hover:text-yellow-600">News &amp; Events</a></li>
-                <li><a href="#contact" class="nav-link text-blue-800 hover:text-yellow-600">Contact Us</a></li>
-            </ul>
-            <a href="#news" class="text-white hidden md:block font-bold bg-green-700 hover:bg-yellow-600 px-4 py-2 rounded text-sm">Apply Now</a>
-            <!-- Hamburger -->
-            <div>
-                <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-                    <span class="hamburger-top"></span>
-                    <span class="hamburger-middle"></span>
-                    <span class="hamburger-bottom"></span>
-                </button>
-                <div class="md:hidden">
-                    <div id="menu" class="absolute flex-col items-center hidden text-blue-800 self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto left-0 right-0 drop-shadow-md px-6">
-                        <a href="#home" class="block text-blue-800">Home</a>
-                        <a href="#about" class="block text-blue-800">About Us</a>
-                        <a href="#gallery" class="block text-blue-800">Gallery</a>
-                        <a href="#team" class="block text-blue-800">Team</a>
-                        <a href="#partners" class="block text-blue-800">Partners</a>
-                        <a href="#news" class="block text-blue-800">News &amp; Events</a>
-                        <a href="#contact" class="block text-blue-800">Contact Us</a>
-                        <a href="#news" class="text-white font-bold bg-green-700 hover:bg-yellow-600 px-3 py-2 rounded">Apply Now</a>
-                    </div>
-                </div>
+    <!-- ===== HEADER: Top bar (logos) + Navbar (links) ===== -->
+    <header class="fixed w-full top-0 z-50 shadow-md">
+        <!-- Top bar: logos -->
+        <div class="bg-green-800 py-2 px-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="#home" class="flex items-center space-x-3">
+                    <img src="./img/knustlogo.png" alt="KNUST" style="height:32px; filter:brightness(0) invert(1);">
+                    <img src="./img/SEED.jpg" alt="SEED" style="height:30px; border-radius:3px;">
+                    <img src="./img/tum.png" alt="TUM" style="height:28px; filter:brightness(0) invert(1);">
+                    <img src="./img/daad.png" alt="DAAD" style="height:26px; filter:brightness(0) invert(1);">
+                </a>
+                <span class="text-green-200 text-xs hidden md:block font-medium tracking-wide">
+                    Funded by DAAD &nbsp;|&nbsp; KNUST &times; TUM Cooperation &nbsp;|&nbsp; tumseedknust@gmail.com
+                </span>
             </div>
         </div>
-    </nav>
+        <!-- Navigation bar -->
+        <nav class="bg-white">
+            <div class="container mx-auto px-4 flex justify-between items-center py-2">
+                <!-- Brand -->
+                <a href="#home" class="text-green-800 font-extrabold text-lg tracking-tight leading-tight hidden md:block">
+                    KNUST TUM<br><span class="text-yellow-600 text-sm font-bold tracking-widest">SEED CENTRE</span>
+                </a>
+                <!-- Desktop menu -->
+                <ul class="hidden md:flex items-center space-x-1 text-sm font-semibold">
+                    <li><a href="#home" class="nav-link px-3 py-2 rounded text-gray-700 hover:bg-green-50 hover:text-green-800">Home</a></li>
+                    <li><a href="#about" class="nav-link px-3 py-2 rounded text-gray-700 hover:bg-green-50 hover:text-green-800">About Us</a></li>
+                    <li><a href="#gallery" class="nav-link px-3 py-2 rounded text-gray-700 hover:bg-green-50 hover:text-green-800">Gallery</a></li>
+                    <li><a href="#team" class="nav-link px-3 py-2 rounded text-gray-700 hover:bg-green-50 hover:text-green-800">Team</a></li>
+                    <li><a href="#partners" class="nav-link px-3 py-2 rounded text-gray-700 hover:bg-green-50 hover:text-green-800">Partners</a></li>
+                    <li><a href="#news" class="nav-link px-3 py-2 rounded text-gray-700 hover:bg-green-50 hover:text-green-800">News &amp; Events</a></li>
+                    <li><a href="#contact" class="nav-link px-3 py-2 rounded text-gray-700 hover:bg-green-50 hover:text-green-800">Contact Us</a></li>
+                </ul>
+                <a href="#news" class="hidden md:inline-block text-white font-bold bg-green-700 hover:bg-yellow-600 px-4 py-2 rounded text-sm transition-colors duration-200">Apply Now</a>
+                <!-- Hamburger (mobile) -->
+                <div class="md:hidden flex items-center justify-between w-full">
+                    <a href="#home" class="text-green-800 font-extrabold text-base">KNUST TUM SEED CENTRE</a>
+                    <button id="menu-btn" class="hamburger focus:outline-none">
+                        <span class="hamburger-top"></span>
+                        <span class="hamburger-middle"></span>
+                        <span class="hamburger-bottom"></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile dropdown -->
+            <div id="menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-2 drop-shadow-lg">
+                <a href="#home" class="block py-2 text-gray-700 font-semibold border-b border-gray-100">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 font-semibold border-b border-gray-100">About Us</a>
+                <a href="#gallery" class="block py-2 text-gray-700 font-semibold border-b border-gray-100">Gallery</a>
+                <a href="#team" class="block py-2 text-gray-700 font-semibold border-b border-gray-100">Team</a>
+                <a href="#partners" class="block py-2 text-gray-700 font-semibold border-b border-gray-100">Partners</a>
+                <a href="#news" class="block py-2 text-gray-700 font-semibold border-b border-gray-100">News &amp; Events</a>
+                <a href="#contact" class="block py-2 text-gray-700 font-semibold border-b border-gray-100">Contact Us</a>
+                <a href="#news" class="block mt-3 text-center text-white font-bold bg-green-700 hover:bg-yellow-600 px-4 py-2 rounded">Apply Now</a>
+            </div>
+        </nav>
+    </header>
 
     <!-- ===== HERO CAROUSEL ===== -->
-    <section id="home" class="hero-section" style="margin-top:0;">
+    <section id="home" class="hero-section" style="margin-top:0; padding-top:0;">
         <div class="swiper-container hero-swiper h-full">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -122,7 +136,7 @@
     </section>
 
     <!-- ===== OUR MISSION (replaces Dreams Foundation "Our Mission" cards) ===== -->
-    <section class="py-16 bg-gray-50" style="padding-top:80px;">
+    <section class="py-16 bg-gray-50" style="padding-top:96px;">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Our Mission</h2>
             <p class="text-center text-gray-500 mb-10">Advancing sustainable energies, entrepreneurship and development in the Global South</p>
